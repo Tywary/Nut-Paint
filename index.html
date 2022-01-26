@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nut Paint</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/mycanvas.js"></script>
+    <script src="js/draw.js"></script>
+    <link rel="stylesheet" href="css/draw.css">
+</head>
+<body>
+<div class="box">
+    <div class="menu">
+        <ul class="menus">
+            <li class="file">
+                <span>File</span>
+                <ul class="menu-list-con">
+                    <li>New</li>
+                    <li>Save</li>
+                    <li>Return</li>
+                    <li><input type="file" vlaue="upload" class="files"></li>
+                   <li><img src="" alt="" class="imgfile" hidden></li>
+                </ul>
+            </li>
+            <li>Canvas</li>
+            <li class="tuexit">
+              <span>Effects</span>
+              <ul class="tuexitlis">
+                  <li data-role="msk">Mosiac</li>
+                  <li data-role="blur">Blur</li>
+                  <li data-role="fx">Invert</li>
+              </ul>
+            </li>
+            <li class="slice">Take Screenshot</li>
+        </ul>
+        <ul class="draw">
+           <li class="menu-list">
+               <span>button ig</span>
+               <ul class="menu-list-con">
+                   <li class="back"><a href="javascript:;" title="Return"><img src="https://cdn.onlinewebfonts.com/svg/img_72405.png" alt=""></a></li>
+                   
+               </ul>
+           </li>
+           <li class="menu-list">
+               <span>Drawing Tools</span>
+               <ul class="menu-list-con drawtool">
+                   <li data-role="line">Line Tool</li>
+                   <li data-role="arc">Circle Tool</li>
+                   <li data-role="rect">Rectangle Tool</li>
+                   <li data-role="bian">Polygon Tool</li>
+                   <li data-role="star">Star Tool</li>
+                   <li data-role="pencil">Pencil Tool</li>
+               </ul>
+           </li>
+           <li class="menu-list">
+               <span>Colors</span>
+               <ul class="menu-list-con">
+                   <li>Fill Color: <input type="color" data-role="fillstyle"></li>
+                   <li>Outline Color: <input type="color" data-role="strokestyle"></li>
+               </ul>
+           </li>
+           <li class="menu-list">
+               <span>Tool Settings</span>
+               <ul class="menu-list-con">
+                   <li data-role="stroke">Stroke Mode</li>
+                   <li data-role="fill">Fill Mode</li>
+               </ul>
+           </li>
+           <li class="menu-list">
+               <span>Line Thiccnees</span>
+               <ul class="menu-list-con">
+                   <li data-role="1">thin</li>
+                  <li data-role="3">medium</li>
+                  <li data-role="5">thicc</li>
+                  <li data-role="null">Thicness Size: <input type="number"></li>
+               </ul>
+           </li>
+           
+           <li class="menu-list">
+               <span class="eraserobj">Eraser</span>
+                <ul class="menu-list-con">
+                   <li data-role="10">small</li>
+                   <li data-role="30">medium</li>
+                   <li data-role="50">large</li>
+                   <li data-role="null">Eraser Size: <input type="number"></li>
+               </ul>
+           </li>
+       </ul>
+    </div>
+    <div class="canvas-box">
+        <canvas width="1000" height="500"></canvas>
+        <div class="erasers"></div>
+        <div class="copy"></div>
+    </div>
+    <div class="slice-move"></div>
+    <!-- <div class="test"><img src="" alt="" class="imgfile"></div> -->
+</div>
+</body>
+</html>
+
