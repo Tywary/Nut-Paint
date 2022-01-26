@@ -4,7 +4,6 @@ $(function(){
     var erasers=$(".erasers");
 
 
-//设置画布的大小
     $(".canvas-box").css({width:windoww*0.9,height:windowh*0.75});
     $(".copy").css({width:windoww*0.9,height:windowh*0.75});
     var canvasw=$(".canvas-box").width();
@@ -13,7 +12,6 @@ $(function(){
     canvas.width=canvasw;
     canvas.height=canvash;
     
-//画图
     var cobj=canvas.getContext("2d");
     var copy=document.querySelector(".copy");
     var draws=new shape(canvas,copy,cobj);
@@ -29,14 +27,12 @@ $(function(){
         }
     })
 
-//文件下拉菜单的操作
     $(".file").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
         $(".file>.menu-list-con").slideToggle(100);
     })
 
-//文件下拉菜单的操作
     $(".tuexit").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
@@ -44,19 +40,16 @@ $(function(){
     })
 
 
-//颜色
     $(".menu-list-con:eq(3)>li>input").change(function(){
     	draws[$(this).attr("data-role")]=$(this).val();
     })
 
-//画图方式
     $(".menu-list-con:eq(4) li").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
     	draws.style=$(this).attr("data-role");
     })
 
-//线条宽度
     $(".menu-list-con:eq(5) li").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
@@ -76,12 +69,10 @@ $(function(){
 
     })
 
-//返回
     $(".menu-list-con:eq(1)").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
     	if(draws.historys.length==0){
-	            //no
 	         cobj.clearRect(0,0,canvas.width,canvas.height);
 	         setTimeout(function(){
 	             alert("All Changes will be lost");
@@ -104,7 +95,6 @@ $(function(){
     })
 
 
-/*文件*/
     $(".menu-list-con:eq(0) li ").click(function(){
         erasers.css({display:"none"});
         draws.isshowxp=false;
@@ -124,11 +114,9 @@ $(function(){
          draws.historys=[];
 
         }else if(index==1){
-         //返回
 
 
          if(draws.historys.length==0){
-                //no
              cobj.clearRect(0,0,canvas.width,canvas.height);
              setTimeout(function(){
                  alert("Changes cannot be recovered");
@@ -140,12 +128,10 @@ $(function(){
                      cobj.clearRect(0, 0, canvas.width, canvas.height);
                  } else {
                      draws.historys.pop();
-                     // cobj.putImageData(draws.historys.pop(), 0, 0);
                  }
              } else {
                  draws.historys.pop();
 
-                 // cobj.putImageData(draws.historys.pop(), 0, 0);
              }
              draws.isback = false;
          }
@@ -156,9 +142,7 @@ $(function(){
         }
     })
 
-//上传图片的处理
 
-    /*马赛克*/
     function msk(dataobj,num,x,y) {
         var width = dataobj.width, height = dataobj.height;
         var num = num;
@@ -198,7 +182,6 @@ $(function(){
 
 
 
-    /*模糊*/
     function blur(dataobj,num,x,y) {
         var width = dataobj.width, height = dataobj.height;
         var arr=[];
@@ -234,7 +217,6 @@ $(function(){
     }
 
 
-    // 反相
     function fx(dataobj,x,y){
         for(var i=0;i<dataobj.width*dataobj.height;i++){
             dataobj.data[i*4+0]=255-dataobj.data[i*4+0];
@@ -278,12 +260,7 @@ $(function(){
             }
         }
 
-    //点击使橡皮消失
-   /* $(":not(.erasers)").click(function(){
-        erasers.css({display:"none"});
-    })*/
 
-//擦除
     var eraserobj=$(".eraserobj");
 
     $(".eraserobj").click(function(){
@@ -309,7 +286,6 @@ $(function(){
     })
 
 
-//截图
     var arrslice=[];
     var slices;
     var flags=true;
@@ -344,12 +320,6 @@ $(function(){
                 var h=starty-endy;
                 slicemove=cobj.getImageData(startx,starty,w,h);
                 slicemove.style.cssText="left="+startx+"px;top="+starty+"px;";
-                /*var newcanvas=document.createElement("canvas");
-                newcanvas.width=w;newcanvas.height=h;
-                newcanvas.style.cssText="position:absolute;left:"+startx+"px;top:"+starty+"px;background:#333;";
-                document.body.appendChild(newcanvas);
-                var newcobj=newcanvas.getContext("2d");
-                newcobj.drawImage(slices)*/
                 draws.historys.push(draws.cobj.getImageData(0,0,draws.width,draws.height));
                 copy.onmousemove=null;
                 copy.onmouseup=null;
@@ -357,7 +327,6 @@ $(function(){
 
             }
         }
-        // console.log(slices);
     })
 
     slicemove.onmousedown=function(e){
@@ -376,12 +345,6 @@ $(function(){
         }
     }
 
-// 
-    /*copy.onmousedown=function(e){
-        var startx=e.offsetX;
-        var starty=e.offsetY;
-        if()
-    }*/
 
 
 })
